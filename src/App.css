@@ -74,33 +74,19 @@ section {
   font-size: 15px;
 }
 .card__btn {
-  padding: 10px 20px;
+  padding: 5px 10px;
   background-color: #d50000;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  /* margin-top: 15px; */
+  margin: 10px;
   font-size: 16px;
-  font-weight: bold;
-  /* text-transform: uppercase; */
-  letter-spacing: 1px;
-  /* padding: 0.5rem;
-  font-weight: bold;
-  border: 2px solid #d50000;
-  border: 2px solid white;
-  background: transparent;
-  background:#d50000;
-  color: white;
-  border-radius: 5px;
-  transition: background 200ms ease-in, color 200ms ease-in;
-  cursor: pointer; */
 }
 
 .card__btn:hover {
   background-color: #ad0202;
-  color: white;
 }
 
 .card:hover {
@@ -358,18 +344,15 @@ section {
 }
 
 .add-btn{
-  padding: 10px 20px;
+  padding: 5px 10px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  margin-top: 15px;
+  /* margin: auto;   */
   font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .add-btn:hover {
@@ -449,3 +432,14 @@ section {
   margin-bottom: 40px;
 }
 
+.watched {
+  background-color: #4caf50;
+  color: #fff;
+  text-align: center;
+  margin: auto;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  /* font-weight: bold; */
+  /* margin-right: 10px; */
+}

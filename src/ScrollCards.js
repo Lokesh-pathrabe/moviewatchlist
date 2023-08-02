@@ -1,10 +1,12 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
+import MovieDetails from './MovieDetails';
 
 function ScrollCards({heading,selectItems}){
     const [movies, setMovies] = useState([]);
       const [currentFilter, setCurrentFilter] = useState(selectItems[0].category);
       const [urllink, setURL] = useState(selectItems[0].url);
+      const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handleFilterClick = (filterValue,urlValue) => {
     setCurrentFilter(filterValue);
@@ -33,6 +35,14 @@ function ScrollCards({heading,selectItems}){
     fetchMovies();
   }, [urllink]);
 
+  const handleMovieClick = (movie) => {
+    setSelectedMovie(movie);
+  };
+
+  const handleCloseMovieDetails = () => {
+    setSelectedMovie(null);
+  };
+
     return(
     <div className='scrollcard'>
         <div className="section__header">
@@ -56,7 +66,7 @@ function ScrollCards({heading,selectItems}){
             <section >
             <div className="wrapper">
                 {movies.map((item) => (
-                    <div className="card">
+                    <div className="card" onClick={() => handleMovieClick(item)}>
                     <div className="card__body">
                     <img loading='eager' src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} class="card__image" />
                     <p className="card__description">{item.vote_average}</p>
@@ -70,6 +80,9 @@ function ScrollCards({heading,selectItems}){
             </div>
             </>
         ))}
+        {selectedMovie && (
+        <MovieDetails movie={selectedMovie} onClose={handleCloseMovieDetails} />
+      )}
     </div>
     )
 }

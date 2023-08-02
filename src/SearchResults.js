@@ -11,7 +11,7 @@ const SearchResults = ({ query }) => {
 
   useEffect(() => {
     const fetchMovies = async (page) => {
-      const api_key = 'YOUR_API_KEY'; // Replace with your actual API key
+      const api_key = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNjI2YmI5OGFlMGE4ZDg5YTFiM2ZhOWZmNDkxMjExZSIsInN1YiI6IjY0YmUwODlhZWI3OWMyMDBlMjhlMDA4ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qi9AycxZsc6sJ5iQpapTpssZOUvnnTEXN30GvsxMl1g';
       const apiUrl = `https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}`;
       try {
         const response = await axios.get(apiUrl, {
@@ -19,7 +19,7 @@ const SearchResults = ({ query }) => {
             Authorization: `Bearer ${api_key}`,
           },
         });
-
+  
         setSearchResults(response.data.results);
         setTotalPages(response.data.total_pages);
       } catch (error) {
@@ -49,32 +49,28 @@ const SearchResults = ({ query }) => {
     setSelectedMovie(null);
   };
 
-  const resultsPerPage = 10;
-  const startIndex = (currentPage - 1) * resultsPerPage;
-  const endIndex = startIndex + resultsPerPage;
-  const currentResults = searchResults.slice(startIndex, endIndex);
+  console.log(selectedMovie);
+  //   console.log(searchResults);
 
   return (
     <div>
-      {currentResults.map((movie) => (
+      {searchResults.map((movie) => (
         <MovieCard key={movie.id} movie={movie} setSelectedMovie={setSelectedMovie} onClick={() => { handleMovieClick(movie) }} />
       ))}
       {selectedMovie && (
         <MovieDetails movie={selectedMovie} onClose={handleCloseMovieDetails} />
       )}
-      {searchResults.length > 0 ? (
-        <div className="pagination">
-          <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-            Previous
-          </button>
-          <span>{currentPage}</span>
-          <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-            Next
-          </button>
-        </div>
-      ) : (
-        <></>
-      )}
+      {searchResults.length > 0 ? <div className="pagination">
+        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span>{currentPage}</span>
+        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+          Next
+        </button>
+      </div> : <></>}
+
+
     </div>
   );
 };

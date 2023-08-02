@@ -15,6 +15,17 @@ const MyWatchlist = ({ onClose }) => {
     localStorage.setItem('watchlist', JSON.stringify(updatedWatchlist));
   };
 
+  const handleMarkWatched = (movie) => {
+    const updatedWatchlist = watchlist.map((item) => {
+      if (item.id === movie.id) {
+        return { ...item, watched: true };
+      }
+      return item;
+    });
+    setWatchlist(updatedWatchlist);
+    localStorage.setItem('watchlist', JSON.stringify(updatedWatchlist));
+  };
+
   return (
     <div className='watchlist-cover'>
       <div className="my-watchlist">
@@ -31,15 +42,18 @@ const MyWatchlist = ({ onClose }) => {
                   <div className="movie-title">
                     <div className="ring" style={{ width: "38px", height: "38px" }}>{movie.vote_average.toFixed(1)}</div>
                     <div className="title">
-                      <div>
+                      <div style={{width:"400px",overflow:'hidden',display: "-webkit-box",webkitBoxOrient: "vertical",overflow: "hidden",textOverflow: "ellipsis",webkitLineClamp: "1"}}>
                         <h2>{movie.title}</h2>
                       </div>
                       <span className="release_date">{movie.release_date}</span>
                     </div>
                   </div>
+                  <div>
+                  {movie.watched ? <span className="watched">Watched</span> : <button className='add-btn' onClick={() => handleMarkWatched(movie)}>Mark Watched</button>}
                   <button onClick={() => { handleRemoveFromWatchlist(movie) }} className="card__btn">
-                    <i class="fa fa-trash" />&nbsp;&nbsp;Remove
+                    <i class="fa fa-trash" />
                   </button>
+                  </div>
                 </div>
                 <div className="overview">
                   <p >{movie.overview}
