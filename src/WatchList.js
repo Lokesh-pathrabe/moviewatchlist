@@ -26,6 +26,16 @@ const MyWatchlist = ({ onClose }) => {
     localStorage.setItem('watchlist', JSON.stringify(updatedWatchlist));
   };
 
+  const getStarColor = (rating) => {
+    if (rating >= 8) {
+        return '#4CAF50'; // Green for high ratings (8 and above)
+    } else if (rating >= 6) {
+        return '#FFC107'; // Yellow for medium ratings (6 to 7.9)
+    } else {
+        return '#F44336'; // Red for low ratings (below 6)
+    }
+};
+
   return (
     <div className='watchlist-cover'>
       <div className="my-watchlist">
@@ -36,13 +46,13 @@ const MyWatchlist = ({ onClose }) => {
         <div >
           {watchlist.map((movie) => (<>
             <div key={movie.id} className="moviecard">
-              <img className="image" src={`https://image.tmdb.org/t/p/w150_and_h225_bestv2/${movie.poster_path}`} alt={movie.title} />
+              <img style={{borderRadius:"10px"}} src={`https://image.tmdb.org/t/p/w150_and_h225_bestv2/${movie.poster_path}`} width="100px" alt={movie.title} />
               <div className="infobar">
                 <div className='title-section'>
                   <div className="movie-title">
-                    <div className="ring" style={{ width: "38px", height: "38px" }}>{movie.vote_average.toFixed(1)}</div>
+                    <div className="ring" style={{ width: "38px", height: "38px",color:"black", backgroundColor: getStarColor(movie.vote_average) }}>{movie.vote_average.toFixed(1)}</div>
                     <div className="title">
-                      <div style={{width:"400px",overflow:'hidden',display: "-webkit-box",webkitBoxOrient: "vertical",overflow: "hidden",textOverflow: "ellipsis",webkitLineClamp: "1"}}>
+                      <div style={{width:"400px",display: "-webkit-box",webkitBoxOrient: "vertical",overflow: "hidden",textOverflow: "ellipsis",webkitLineClamp: "1"}}>
                         <h2>{movie.title}</h2>
                       </div>
                       <span className="release_date">{movie.release_date}</span>

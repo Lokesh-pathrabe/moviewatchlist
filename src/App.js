@@ -11,10 +11,6 @@ function App() {
   const [showWatchlist, setShowWatchlist] = useState(false);
   const [home,setHome]=useState(true);
 
-  // const handleMyWatchlistClick = () => {
-  //   setShowWatchlist(true);
-  // };
-
   const handleCloseWatchlist = () => {
     setShowWatchlist(false);
   };

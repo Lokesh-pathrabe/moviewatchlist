@@ -415,21 +415,25 @@ section {
 
 .hero-content {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 20%;
+  left: 20%;
   transform: translate(-50%, -50%);
   text-align: center;
   color: #ffffff;
+  /* background-color: #333; */
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
 .hero-content p {
-  font-size: 1.5rem;
-  margin-bottom: 40px;
+  font-size: 1rem;
+  /* margin-bottom: 40px; */
 }
 
 .watched {
