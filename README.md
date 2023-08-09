@@ -46,3 +46,31 @@ Follow these steps to set up and run the MovieWatchlist project on your local ma
 - Click the "Add to Watchlist" button on a movie's details page to add it to your watchlist.
 - Click the "My Watchlist" button in the navbar to view and manage your watchlist.
 
+## Demo
+Here's the glimpse of what the MovieWatchlist Website looks like
+
+
+Home Page
+
+<img src="https://github.com/Lokesh-pathrabe/moviewatchlist/blob/main/assets/homepage.png?raw=true" alt="Home Page" width="500px">
+
+
+Add to WatchList
+
+<img src="https://github.com/Lokesh-pathrabe/moviewatchlist/blob/main/assets/addtowatchlist.png?raw=true" alt="add to watchlist" width="500px">
+
+
+Search Movie
+
+<img src="https://github.com/Lokesh-pathrabe/moviewatchlist/blob/main/assets/search.png?raw=true" alt="search movie" width="500px">
+
+
+My Watchlist
+
+<img src="https://github.com/Lokesh-pathrabe/moviewatchlist/blob/main/assets/mywatchlist.png?raw=true" alt="My watchlist Page" width="500px">
+
+
+Mark as Watched
+
+<img src="https://github.com/Lokesh-pathrabe/moviewatchlist/blob/main/assets/markaswatch.png?raw=true" alt="Mark as watched" width="500px">
+
