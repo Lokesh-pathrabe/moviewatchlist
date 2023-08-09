@@ -78,7 +78,7 @@ function ScrollCards({ heading, selectItems }) {
                     <div className="card__body">
                       <img loading='eager' src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} class="card__image" alt={item.title} />
                       <p className="card__description"><i style={{ color: getStarColor(item.vote_average) }} class="fa fa-star" /> {item.vote_average}</p>
-                      <p className="card__title">{item.original_title || item.original_name}</p>
+                      <p className="card__title">{item.title || item.original_name}</p>
                       <p className="card__description">{item.release_date || item.first_air_date}</p>
                     </div>
                   </div>

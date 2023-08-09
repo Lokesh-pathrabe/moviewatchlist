@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import addmovie from './addmovie.jpg';
 
 const MyWatchlist = ({ onClose }) => {
   // const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
@@ -35,7 +36,6 @@ const MyWatchlist = ({ onClose }) => {
         return '#F44336'; // Red for low ratings (below 6)
     }
 };
-
   return (
     <div className='watchlist-cover'>
       <div className="my-watchlist">
@@ -44,6 +44,7 @@ const MyWatchlist = ({ onClose }) => {
         </div>
         <h2>My Watchlist</h2>
         <div >
+          {watchlist.length > 0? <>
           {watchlist.map((movie) => (<>
             <div key={movie.id} className="moviecard">
               <img style={{borderRadius:"10px"}} src={`https://image.tmdb.org/t/p/w150_and_h225_bestv2/${movie.poster_path}`} width="100px" alt={movie.title} />
@@ -77,6 +78,8 @@ const MyWatchlist = ({ onClose }) => {
             </div>
           </>
           ))}
+          </> :<div style={{display:"flex",height:"500px",alignItems:"center",justifyContent:"center",flexDirection:"column"}}> Please add something to the watchlist!<img src={addmovie} width="400px" alt="Empty Watchlist"/></div>}
+          
         </div>
         {/* {selectedMovie && (
         <MovieDetails movie={selectedMovie} onClose={handleCloseMovieDetails} />

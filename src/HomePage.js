@@ -25,7 +25,7 @@ const Home = () => {
     fetchMovies();
     const interval = setInterval(() => {
       fetchMovies();
-    }, 30000);
+    }, 30000); // after 30 seconds background change
     return () => clearInterval(interval);
   }, []);
   // console.log(randomBackdrop)
