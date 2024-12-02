@@ -65,7 +65,7 @@ Search Movie
 <img src="https://github.com/Lokesh-pathrabe/moviewatchlist/blob/main/assets/search.png?raw=true" alt="search movie" width="500px">
 
 
-My Watchlist
+Wishlist
 
 <img src="https://github.com/Lokesh-pathrabe/moviewatchlist/blob/main/assets/mywatchlist.png?raw=true" alt="My watchlist Page" width="500px">
 
